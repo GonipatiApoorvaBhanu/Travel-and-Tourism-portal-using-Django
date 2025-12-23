@@ -50,16 +50,11 @@ The scope of the project includes both **User** and **Admin** modules:
 
 ---
 
-## 🔮 Future Enhancements
-- Integration with real-time payment gateways  
-- Live booking status updates  
-- Email/SMS notifications  
-- Advanced search and filter options  
-- User reviews and ratings for destinations  
-
----
 
 ## ⚙️ Installation & Setup
-1. Clone the repository  
+ Clone the repository  
    ```bash
    git clone <repository-url>
+python manage.py migrate
+Start the development server
+python manage.py runserver
