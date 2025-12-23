@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="text-2xl font-bold text-center mt-4">Available Tours</h1>
+
+<div class="tour-cards" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+{% for tour in tours %}
+<div class="card" style="border: 1px solid #ccc; border-radius: 8px; padding: 15px; width: 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 10px; display: inline-block; vertical-align: top;">
+    
+    {% if tour.name == "Goa Getaway" %}
+        <img src="{% static 'images/goa_beach.jpg' %}" alt="Goa Beach" style="width: 100%; height: 180px; object-fit: cover; border-radius: 5px;">
+        <h2 style="font-size: 1.5em; margin-top: 10px;">Goa Beach</h2>
+        <p><strong>Location:</strong> Goa</p>
+    {% elif tour.name == "Kerala Backwaters" %}
+        <img src="{% static 'images/kerala.jpg' %}" alt="Kerala Backwaters" style="width: 100%; height: 180px; object-fit: cover; border-radius: 5px;">
+        <h2 style="font-size: 1.5em; margin-top: 10px;">Kerala Backwaters</h2>
+        <p><strong>Location:</strong> Kerala</p>
+    {% elif tour.name == "Rajasthan Desert Safari" %}
+        <img src="{% static 'images/rajasthan.jpg' %}" alt="Rajasthan Desert Safari" style="width: 100%; height: 180px; object-fit: cover; border-radius: 5px;">
+        <h2 style="font-size: 1.5em; margin-top: 10px;">Rajasthan Desert Safari</h2>
+        <p><strong>Location:</strong> Rajasthan</p>
+    {% elif tour.name == "Goa Adventure" %}
+        <img src="{% static 'images/mumbai.jpg' %}" alt="Mumbai" style="width: 100%; height: 180px; object-fit: cover; border-radius: 5px;">
+        <h2 style="font-size: 1.5em; margin-top: 10px;">Mumbai</h2>
+        <p><strong>Location:</strong> Mumbai</p>  <!-- HARD-CODED Mumbai -->
+    {% else %}
+        <img src="{% static 'images/mumbai.jpg' %}" alt="Tour" style="width: 100%; height: 180px; object-fit: cover; border-radius: 5px;">
+        <h2 style="font-size: 1.5em; margin-top: 10px;">{{ tour.name }}</h2>
+        <p><strong>Location:</strong> {{ tour.location }}</p>
+    {% endif %}
+    
+    <p><strong>Duration:</strong> {{ tour.duration }}</p>
+    <p><strong>Price:</strong> ₹{{ tour.price }}</p>
+    <a href="{% url 'buses' tour.id %}" style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">View Buses</a>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}

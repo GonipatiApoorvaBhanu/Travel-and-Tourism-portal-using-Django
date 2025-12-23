@@ -1,0 +1,11 @@
+<h2>Buses matching destination: "{{ destination }}"</h2>
+
+{% if buses %}
+    <ul>
+        {% for bus in buses %}
+            <li>{{ bus.name }} | ₹{{ bus.price }} | [Book Now]</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No buses found for this destination.</p>
+{% endif %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ tour.name }}</h2>
+<p>{{ tour.location }}</p>
+<p>₹{{ tour.price }}</p>
+<img src="{{ tour.image.url }}">
+<a href="{% url 'bus_list' %}">Proceed to Book</a>
+{% endblock %}

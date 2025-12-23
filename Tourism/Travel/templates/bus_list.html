@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="get">
+  <input name="source" placeholder="Source">
+  <input name="destination" placeholder="Destination">
+  <button type="submit">Search</button>
+</form>
+
+<ul>
+  {% for bus in buses %}
+    <li>
+      {{ bus.source }} to {{ bus.destination }}
+      <a href="{% url 'view_seats' bus.id %}">View Seats</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; margin-top: 50px;">
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 30px; max-width: 500px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;">
+        <h1 style="font-size: 2em; font-weight: bold; margin-bottom: 20px;">Payment Successful ✅</h1>
+        <p style="font-size: 1.2em; margin-bottom: 20px;">
+            Your payment for Bus ID {{ bus_id }} was successful.
+        </p>
+        <a href="{% url 'booking_success' bus_id %}" style="padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px; text-decoration: none;">
+            Proceed to Booking Confirmation
+        </a>
+    </div>
+</div>
+{% endblock %}
